@@ -1,6 +1,6 @@
 const API_URL = process.env.REACT_APP_API_BASE_URL;
 
-export async function createClient(body) {
+export async function createClients(body) {
     const payload = {
       method: 'POST',
       headers: {

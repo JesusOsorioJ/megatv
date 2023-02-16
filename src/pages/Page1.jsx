@@ -15,10 +15,10 @@ export default function Page1() {
 
     
 
-    <div className='Page1'>
-       <h1>The Best TV service around</h1>
-        <h3>Are you ready to enjoy ultra-best service?</h3>
-        <button onClick={handlerOnClick}>Yes!</button>
+    <div className='page1'>
+       <h1 className='title'>The Best TV service around</h1>
+        <h3 className='text'>Are you ready to enjoy ultra-best service?</h3>
+        <button className='button' onClick={handlerOnClick}>Let's do it!</button>
     </div>
     
         

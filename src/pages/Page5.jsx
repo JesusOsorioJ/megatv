@@ -11,14 +11,14 @@ export default function Page5({handlerOnChange}) {
     }
   
   return (
-    <div class='Page5'>
-        <h3>Great new! Your first month's free!</h3>
-        <h3>to get set up, just provide your email and phone number
+    <div className='page5'>
+        <h3 className='title'>Great new! Your first month's free!</h3>
+        <h3 className='title1'>to get set up, just provide your email and phone number
             and we can remind you when the free trial ends.
         </h3>
-        <form onSubmit={handlerOnClick}>
-            <input name='email' placeholder='Email'  onChange={handlerOnChange}/>
-            <input name='phoneNumber' placeholder='Phone number'  onChange={handlerOnChange}/>
+        <form className='boxinput' onSubmit={handlerOnClick}>
+            <input className='input' name='email' placeholder='Email'  onChange={handlerOnChange}/>
+            <input className='input' name='phoneNumber' placeholder='Phone number'  onChange={handlerOnChange}/>
         </form>  
         <h6>I can't find my address</h6>      
     </div>

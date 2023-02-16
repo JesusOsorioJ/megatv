@@ -10,11 +10,11 @@ export default function Page2({handlerOnChange}) {
         dispatch(setView(3));
     }
   return (
-    <div class='Page2'>
-        <h3>Awesome! Let's get started with the basics</h3>
-        <form onSubmit={handlerOnClick}>
-            <input name='firstname' onChange={handlerOnChange}  placeholder='First Name'/>
-            <input name='secondname' onChange={handlerOnChange} placeholder='Second Name'/>
+    <div className='page2'>
+        <h3 className='text'>Awesome! Let's get started with the basics</h3>
+        <form className='boxinput' onSubmit={handlerOnClick}>
+            <input className='input' name='firstname' onChange={handlerOnChange}  placeholder='First Name'/>
+            <input className='input' name='secondname' onChange={handlerOnChange} placeholder='Second Name'/>
             <button type="submit">Next</button>
         </form>        
     </div>
