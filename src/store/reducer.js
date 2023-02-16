@@ -1,7 +1,7 @@
 const initialState = {
     user: {},
     view: 1,
-    middle: { isActive: false },
+    middle: false,
   };
 
   function reducer(state = initialState, action) {
@@ -16,15 +16,10 @@ const initialState = {
           ...state,
           user: action.payload,
         };
-      case 'ACTIVATE_MIDDLE':
+      case 'IS_LOADING':
         return {
           ...state,
-          middle: { ...action.payload, isActive: true },
-        };
-      case 'DEACTIVATE_MIDDLE':
-        return {
-          ...state,
-          middle: { isActive: false },
+          middle: action.payload ,
         };
       default:
         return state;

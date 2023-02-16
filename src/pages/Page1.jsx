@@ -18,7 +18,7 @@ export default function Page1() {
     <div className='page1'>
        <h1 className='title'>The Best TV service around</h1>
         <h3 className='text'>Are you ready to enjoy ultra-best service?</h3>
-        <button className='button' onClick={handlerOnClick}>Let's do it!</button>
+        <button className='button' onClick={handlerOnClick}>LET'S DO IT!</button>
     </div>
     
         

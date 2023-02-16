@@ -13,9 +13,9 @@ export default function Page2({handlerOnChange}) {
     <div className='page2'>
         <h3 className='text'>Awesome! Let's get started with the basics</h3>
         <form className='boxinput' onSubmit={handlerOnClick}>
-            <input className='input' name='firstname' onChange={handlerOnChange}  placeholder='First Name'/>
-            <input className='input' name='secondname' onChange={handlerOnChange} placeholder='Second Name'/>
-            <button type="submit">Next</button>
+            <input required className='input' name='firstname' onChange={handlerOnChange}  placeholder='First Name'/>
+            <input required className='input' name='secondname' onChange={handlerOnChange} placeholder='Second Name'/>
+            <button type="submit">NEXT</button>
         </form>        
     </div>
 

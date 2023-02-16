@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
-import { activateMiddle, deactivateMiddle } from '../store/actions';
+import { isloading } from '../store/actions';
 import { createClients } from '../services/clients.js';
 import { getAddressBy } from '../services/address';
 import './Home.scss';
@@ -13,47 +13,48 @@ import Page5 from './Page5';
 
 
 export default function Home() {
-    const page = useSelector((state) => state.view);
+    const dispatch = useDispatch();
+    const {view,middle}  = useSelector((state) => state);
     const [form, setForm] = useState({});
     const [allAddress, setallAddress] = useState([]);
-    
 
     const handlerOnChange = async (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
-        if  (name == "address"){
+        if  (name == "address"&&value.length >0){
+            dispatch(isloading(true))
             const response = await getAddressBy(value);
-            console.log("response",response)
             setallAddress(response);
+            setTimeout(() => {
+                dispatch(isloading(false))
+            },800);
         }
     };
 
-    const handleOnClickSubmit = async () => {
-        // console.log(form)
-        const response = await createClients(form);
+    const handleOnClickSubmit = async (e) => {
+        e.preventDefault();
+        console.log("form",form);
+        await createClients(form);
     }
 
 return (
     <div className='home'>
-        {(page === 1) && (<Page1 />)}
-        {(page === 2) && (
+        {(view === 1) && (<Page1 />)}
+        {(view === 2) && (
         <Page2 handlerOnChange={handlerOnChange}/>
         )}
-        {(page === 3) && (
+        {(view === 3) && (
         <Page3 handlerOnChange={handlerOnChange}
         allAddress={allAddress}
-        />
+        middle={middle}/>
         )}
-        {(page === 4) && (
+        {(view === 4) && (
         <Page4 handlerOnChange={handlerOnChange}/>
         )}
-        {(page === 5) && (
-        <Page5 handlerOnChange={handlerOnChange}/>
-        )}
-        {(page === 5 ) && (
-        <button onClick={handleOnClickSubmit}>
-              Subscribe now!
-        </button>
+        {(view === 5) && (
+        <Page5 
+        handleOnClickSubmit={handleOnClickSubmit}
+        handlerOnChange={handlerOnChange}/>
         )}
     </div>
 
